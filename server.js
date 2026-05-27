@@ -77,7 +77,7 @@ const server = http.createServer((req, res) => {
         //Contruimos la ruta absoluta en disco
         //__dirname = carpeta donde esta server.js
         //Ejemplo: /home/usuario/mi-proyecto/public/index.html
-        const filePeth = path.join(__dirname, 'public', urlPath);
+        const filePath = path.join(__dirname, 'public', urlPath);
 
         //Seguridad: verificamos que la ruta resultante esta dentro de public
         //evita ataques tipo: GET/../../etc/passwd
