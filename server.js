@@ -3,17 +3,11 @@ const http = require('node:http');
 const fs = require('node:fs'); //leer archivos del disco
 const path = require('node:path'); //Para construir rutas de carpetas
 
+// Importamos el router de personajes que acabamos de crear
+const { handleCharacters } = require('./routes/characters');
 
 //Definimos el puerto donde va a escuchar el servidor
 const PORT = 3000;
-
-//Array en memoria, los personajes viven mientras el servidor este corriendo
-//Cuando reiniciamos el servidor, estos datos se reinician tambien
-const characters = [
-    { id: 1, name: 'Aragorn', race: 'Human', role: 'Ranger', level: 87, universe: 'LOTR'},
-    { id: 2, name: 'Gandalf', race: 'Maia', role: 'Wizard', level: 99, universe: 'LOTR' },
-    { id: 3, name: 'Geralt', race: 'Witcher', role: 'Hunter', level: 75, universe: 'The Witcher'},
-];
 
 //Fn Envia una respuesta JSON
 function sendJSON(res, statusCode, data) {
